@@ -101,3 +101,37 @@ def exactly_one_topping(ketchup, mustard, onion):
 
 # Check your answer
 q6.check()
+
+7.
+def should_hit(dealer_total, player_total, player_low_aces, player_high_aces):
+    """
+    Return True if the player should hit (request another card) given the current game state, 
+    or False if the player should stay.
+    
+    When calculating a hand's total value, we count aces as "high" (with value 11) if doing so
+    doesn't bring the total above 21, otherwise we count them as low (with value 1).
+    For example, if the player's hand is {A, A, A, 7}, we will count it as 11 + 1 + 1 + 7,
+    and therefore set player_total=20, player_low_aces=2, player_high_aces=1.
+    """
+    
+    # Basic strategy considerations
+    if player_total <= 11:
+        # Always hit if there's no risk of busting
+        return True
+    elif player_total >= 17:
+        # Stay on 17 or higher as hitting is too risky
+        return False
+    elif dealer_total >= 7:
+        # Hit if the dealer has a strong hand
+        return player_total <= 16
+    elif dealer_total <= 6:
+        # Stay if the dealer has a weak hand and player has a chance to win
+        return player_total <= 11
+    
+    # Consideration of aces in hand
+    if player_high_aces > 0 and player_total <= 18:
+        # More flexible with a high ace in hand
+        return True
+
+    # Default to staying if none of the above conditions are met
+    return False
