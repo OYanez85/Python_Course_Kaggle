@@ -16,5 +16,16 @@ def round_to_two_places(num):
 q1.check()
 
 ## 2.
+# Define the area of Finland and Greenland
+Finland_area = 338424
+Greenland_area = 2166086
+
+# Use round() with ndigits=-3 to round to the nearest thousand
+Finland_area_rounded = round(Finland_area, ndigits=-3)
+Greenland_area_rounded = round(Greenland_area, ndigits=-3)
+
+Finland_area_rounded, Greenland_area_rounded
+
+## 3.
 
 
