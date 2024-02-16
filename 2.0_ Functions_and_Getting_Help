@@ -1,1 +1,6 @@
+# Functions and Getting Help
+
+help(round)
+
+help(round(-2.01))
 
