@@ -27,5 +27,49 @@ Greenland_area_rounded = round(Greenland_area, ndigits=-3)
 Finland_area_rounded, Greenland_area_rounded
 
 ## 3.
+def to_smash(total_candies):
+    """Return the number of leftover candies that must be smashed after distributing
+    the given number of candies evenly between 3 friends.
+    
+    >>> to_smash(91)
+    1
+    """
 
+def to_smash(total_candies, n_friends=3):
+    return total_candies % n_friends
 
+# Check your answer
+q3.check()
+
+## 4.
+
+mistake: ruond_to_two_places(9.9999)
+solution: round_to_two_places(9.9999)
+-------------
+mistake: 
+x = -10
+y = 5
+# # Which of the two variables above has the smallest absolute value?
+smallest_abs = min(abs(x, y))
+
+solution:
+x = -10
+y = 5
+# Compare the absolute values of x and y to find the smallest
+smallest_abs = min(abs(x), abs(y))
+print(smallest_abs)
+
+-------------
+mistake:
+def f(x):
+     y = abs(x)
+ return y
+
+ print(f(5))
+
+solution:
+def f(x):
+    y = abs(x)
+    return y
+
+print(f(5))
