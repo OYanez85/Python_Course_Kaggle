@@ -1,1 +1,105 @@
+#### Booleans
+x = True
+print(x)
+print(type(x))
+--------------
+### Comparison Operations
+Operation	 Description		              Operation	Description
+a == b	   a equal to b		              a != b	a not equal to b
+a < b	     a less than b		            a > b	a greater than b
+a <= b	   a less than or equal to b		a >= b	a greater than or equal to b
+------------
+def can_run_for_president(age):
+    """Can someone of the given age run for president in the US?"""
+    # The US Constitution says you must be at least 35 years old
+    return age >= 35
 
+print("Can a 19-year-old run for president?", can_run_for_president(19))
+print("Can a 45-year-old run for president?", can_run_for_president(45))
+-------------------------
+3.0 == 3
+True
+-------------
+'3' == 3
+False
+--------
+def is_odd(n):
+    return (n % 2) == 1
+
+print("Is 100 odd?", is_odd(100))
+print("Is -1 odd?", is_odd(-1))
+----------------
+### Combining Boolean Values: the words to do this are: and, or, and not.
+
+def can_run_for_president(age, is_natural_born_citizen):
+    """Can someone of the given age and citizenship status run for president in the US?"""
+    # The US Constitution says you must be a natural born citizen *and* at least 35 years old
+    return is_natural_born_citizen and (age >= 35)
+
+print(can_run_for_president(19, True))
+print(can_run_for_president(55, False))
+print(can_run_for_president(55, True))
+------------------
+True or True and False
+Output: True
+
+# Why?
+# Operator precedence: and is evaluated before or. That's why the first expression above is True. 
+# If we evaluated it from left to right, we would have calculated True or True first (which is True), and then taken the and of that result with False, giving a final value of False.
+
+# There is a bug in the following code:
+prepared_for_weather = have_umbrella or rain_level < 5 and have_hood or not rain_level > 0 and is_workday
+
+# Modified: 
+prepared_for_weather = have_umbrella or (rain_level < 5 and have_hood) or not (rain_level > 0 and is_workday)
+
+# Helping readability by adding parentheses:
+prepared_for_weather = have_umbrella or ((rain_level < 5) and have_hood) or (not (rain_level > 0 and is_workday))
+
+# Split it over multiple lines to help readability: 
+prepared_for_weather = (
+    have_umbrella 
+    or ((rain_level < 5) and have_hood) 
+    or (not (rain_level > 0 and is_workday))
+)
+-----------------------
+### Conditionals
+
+def inspect(x):
+    if x == 0:
+        print(x, "is zero")
+    elif x > 0:
+        print(x, "is positive")
+    elif x < 0:
+        print(x, "is negative")
+    else:
+        print(x, "is unlike anything I've ever seen...")
+
+inspect(0)
+inspect(-15)
+
+---------------
+def f(x):
+    if x > 0:
+        print("Only printed when x is positive; x =", x)
+        print("Also only printed when x is positive; x =", x)
+    print("Always printed, regardless of x's value; x =", x)
+
+f(1)
+f(0)
+-------------------
+### Boolean conversion
+
+print(bool(1)) # all numbers are treated as true, except 0
+print(bool(0))
+print(bool("asf")) # all strings are treated as true, except the empty string ""
+print(bool(""))
+# Generally empty sequences (strings, lists, and other types we've yet to see like lists and tuples)
+# are "falsey" and the rest are "truthy"
+
+-------------------
+if 0:
+    print(0)
+elif "spam":
+    print("spam")
+----------------------
