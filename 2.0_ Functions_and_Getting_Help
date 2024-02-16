@@ -3,11 +3,11 @@
 ## Getting help
 
 help(round)
-
+-----------------
 help(round(-2.01))
-
+------------------------
 help(print)
-
+-------------------
 ## Defining functions
 
 def least_difference(a, b, c):
