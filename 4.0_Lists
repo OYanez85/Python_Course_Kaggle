@@ -1,1 +1,151 @@
+### Lists
 
+primes = [2, 3, 5, 7]
+---------------------------
+planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune']
+----------------------------
+hands = [
+    ['J', 'Q', 'K'],
+    ['2', '2', '2'],
+    ['6', 'A', 'K'], # (Comma after the last element is optional)
+]
+# (I could also have written this on one line, but it can get hard to read)
+hands = [['J', 'Q', 'K'], ['2', '2', '2'], ['6', 'A', 'K']]
+----------------------------
+my_favourite_things = [32, 'raindrops on roses', help]
+# (Yes, Python's help function is *definitely* one of my favourite things)
+-----------------
+
+## Indexing
+
+planets[0]
+-----------
+planets[1]
+------------
+planets[-1]
+------------
+planets[-2]
+-----------
+
+## Slicing
+
+planets[0:3]
+--------------
+planets[:3]
+-------------
+planets[3:]
+-----------
+# All the planets except the first and last
+planets[1:-1]
+-----------
+# The last 3 planets
+planets[-3:]
+--------------
+
+## Changing lists
+
+planets[3] = 'Malacandra'
+planets
+-------------------------
+planets[:3] = ['Mur', 'Vee', 'Ur']
+print(planets)
+# That was silly. Let's give them back their old names
+planets[:4] = ['Mercury', 'Venus', 'Earth', 'Mars',]
+--------------------------
+
+## List functions
+
+# How many planets are there?
+len(planets)
+---------------------
+# The planets sorted in alphabetical order
+sorted(planets)
+---------------------
+primes = [2, 3, 5, 7]
+sum(primes)
+---------------------
+max(primes)
+--------------------
+
+## Interlude: objects
+# I've used the term 'object' a lot so far - you may have even read that everything in Python is an object. What does that mean?
+# In short, objects carry some things around with them. You access that stuff using Python's dot syntax.
+# For example, numbers in Python carry around an associated variable called imag representing their imaginary part. (You'll probably never need to use this unless you're doing some very weird math.)
+
+x = 12
+# x is a real number, so its imaginary part is 0.
+print(x.imag)
+# Here's how to make a complex number, in case you've ever been curious:
+c = 12 + 3j
+print(c.imag)
+---------------------------
+x = 12
+# x is a real number, so its imaginary part is 0.
+print(x.imag)
+# Here's how to make a complex number, in case you've ever been curious:
+c = 12 + 3j
+print(c.imag)
+-----------------------
+x.bit_length
+-----------------------
+# A function attached to an object is called a method. (Non-function things attached to an object, such as imag, are called attributes).
+x.bit_length()
+-----------------------
+help(x.bit_length)
+-----------------------
+
+## List methods
+
+# Pluto is a planet darn it!
+planets.append('Pluto')
+---------------
+help(planets.append)
+---------------
+planets
+-------------
+# list.pop removes and returns the last element of a list:
+planets.pop()
+---------------
+planets
+--------------
+
+## Searching lists
+
+planets.index('Earth')
+---------------------
+# error Pluto is not in the list
+planets.index('Pluto')
+---------------
+# to avoid this
+# Is Earth a planet?
+"Earth" in planets
+-----------------
+# Is Calbefraques a planet?
+"Calbefraques" in planets
+--------------------
+help(planets)
+
+## Tuples
+
+# Tuples are almost exactly the same as lists. They differ in just two ways.
+# 1: The syntax for creating them uses parentheses instead of square brackets.
+t = (1, 2, 3)
+------------------
+t = 1, 2, 3 # equivalent to above
+t
+-----------------
+# 2: They cannot be modified (they are immutable).
+t[0] = 100
+------------------
+x = 0.125
+x.as_integer_ratio()
+--------------------
+numerator, denominator = x.as_integer_ratio()
+print(numerator / denominator)
+--------------------
+# Stupid Python Trick™ for swapping two variables!
+a = 1
+b = 0
+a, b = b, a
+print(a, b)
+----------------------
