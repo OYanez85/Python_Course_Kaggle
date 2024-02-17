@@ -35,4 +35,17 @@ q0.e.check()
 
 1. 
 
+def is_valid_zip(zip_code):
+    """Returns whether the input string is a valid (5 digit) zip code
+    """
+    # Check if the length is 5 and all characters are digits
+    return len(zip_code) == 5 and zip_code.isdigit()
+    # if len(zip_code) == 5:
+        # print(zip_code.isdigit())  # Output: True
+# help(str.isdigit)
+# Check your answer
+q1.check()
+
+2.
+
 
