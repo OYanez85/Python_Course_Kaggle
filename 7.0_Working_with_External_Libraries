@@ -22,17 +22,23 @@ mt.pi
 import math
 mt = math
 ---------------
+#import * makes all the module's variables directly accessible to you (without any dotted prefix).
 from math import *
 print(pi, log(32, 2))
 ---------------
+# These kinds of "star imports" can occasionally lead to weird, difficult-to-debug situations.
 from math import *
 from numpy import *
 print(pi, log(32, 2))
 -----------------
+# A good compromise is to import only the specific things we'll need from each module:
 from math import log, pi
 from numpy import asarray
 -----------------
 ### Submodules
+# We've seen that modules contain variables which can refer to functions or values. 
+# Something to be aware of is that they can also have variables referring to other modules.
+
 import numpy
 print("numpy.random is a", type(numpy.random))
 print("it contains names such as...",
