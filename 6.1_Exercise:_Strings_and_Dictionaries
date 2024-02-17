@@ -1,1 +1,38 @@
+0a.
+
+a = ""
+length = len(a)
+print(length)
+q0.a.check()
+
+0b.
+
+b = "it's ok"
+length = len(b)
+print(length)
+q0.b.check()
+
+0c.
+
+c = 'it\'s ok'
+length = len(c)
+print(length)
+q0.c.check()
+
+0d.
+
+d = """hey"""
+length = len(d)
+print(length)
+q0.d.check()
+
+0e.
+
+e = '\n'
+length = len(e)
+print(length)
+q0.e.check()
+
+1. 
+
 
